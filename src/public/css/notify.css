@@ -1,0 +1,15 @@
+.notify {
+	margin: 0;
+	padding: 20px;
+	text-align: center;
+}
+
+.error {
+	background-color: red;
+	color: white;
+}
+
+.success {
+	background-color: greenyellow;
+	color: black;
+}

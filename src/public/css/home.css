@@ -1,0 +1,204 @@
+@import url(notify.css);
+@import url(common.css);
+
+header {
+	text-align: end;
+	padding: 20px;
+	position: sticky;
+	top: 0;
+	z-index: 2;
+}
+
+.intro-screen,
+.game-screen,
+header,
+.show-all-games-data {
+	backdrop-filter: blur(5px);
+}
+
+header span {
+	color: white;
+	text-transform: capitalize;
+}
+
+header a {
+	margin-left: 20px;
+}
+
+.show-all-games-data {
+	color: white;
+	text-align: center;
+}
+
+.show-all-games-data h2 {
+	font-weight: 600;
+}
+
+.show-all-games-data a.link {
+	position: sticky;
+	top: 80px;
+}
+
+.show-all-games-data ul {
+	margin: auto;
+	max-width: 460px;
+	list-style: none;
+	padding: 20px;
+}
+
+.show-all-games-data ul li {
+	border: 1px solid white;
+	border-radius: 5px;
+	padding: 20px;
+	margin-bottom: 30px;
+}
+
+.show-all-games-data ul li * {
+	padding: 5px 0;
+	margin: 0;
+}
+.game-screen {
+	position: relative;
+}
+
+.game-screen .winner {
+	padding: 20px 0;
+	background-color: #00ff8c;
+	color: black;
+	width: 80%;
+}
+
+.game-screen .player-symbols {
+	color: white;
+}
+
+.intro-screen,
+.game-screen .winner {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.intro-screen,
+.game-screen {
+	border-radius: 5px;
+	max-width: 460px;
+	text-align: center;
+	padding: 20px;
+}
+.intro-screen h2 {
+	padding: 0 15px;
+	color: white;
+}
+
+.intro-screen a {
+	margin-top: 20px;
+}
+
+.intro-screen button {
+	font-size: 3.4em;
+	padding: 3% 6%;
+	margin: 0 4%;
+}
+
+table {
+	max-width: 420px;
+	max-height: 420px;
+	width: 85vw;
+	height: 85vw;
+	border-spacing: 4px;
+}
+td {
+	border: 1px solid white;
+	padding: 0;
+}
+.cell {
+	display: block;
+	height: 100%;
+	width: 100%;
+	background: inherit;
+	border-radius: 0;
+	color: white;
+}
+.wincell {
+	background-color: #070027;
+}
+.player-two {
+	color: #00ff8c;
+}
+
+button,
+a.link {
+	cursor: pointer;
+	border: none;
+	outline: none;
+	color: #333;
+	border-radius: 10px;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+.restart,
+a.link {
+	flex: 1;
+	font-size: 1.2em;
+	padding: 5px 10px;
+	display: inline-block;
+	background-color: white;
+	white-space: nowrap;
+}
+
+.buttons-cont {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	margin-top: 20px;
+}
+
+.choose:active,
+.restart:active {
+	border: none;
+	outline: none;
+	background-color: #ccc;
+}
+
+.btn-green {
+	background-color: #70d260;
+}
+.btn-green:active {
+	background-color: #60c050 !important;
+}
+
+.center {
+	margin: 0 auto;
+}
+.hide {
+	display: none;
+}
+.cannotuse {
+	cursor: not-allowed;
+}
+
+@media only screen and (max-width: 767px) {
+	.cell {
+		font-size: 3rem;
+	}
+	td {
+		width: 90px;
+		height: 90px;
+	}
+}
+
+@media only screen and (min-width: 1024px),
+	only screen and (min-width: 768px) and (max-width: 1023px) {
+	.cell {
+		font-size: 5rem;
+	}
+	td {
+		width: 140px;
+		height: 140px;
+	}
+}

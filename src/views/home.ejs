@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+        <link rel="stylesheet" href="css/home.css">
+    </head>
+
+    <body id="game-board-page">
+        <main>
+            <% if (typeof error !== 'undefined') { %>
+                <h5 class="error notify"><%= error %></h5>
+            <% } %>
+            
+            <% if (typeof success !== 'undefined') { %>
+                <h5 class="success notify"><%= success %></h5>
+            <% } %>
+            <% if (typeof username !== 'undefined') { %>
+                <header>
+                    <span id="username">
+                        Hi, <span><%= username %></span>
+                    </span>
+                    <a href="logout" class="link">Logout</a>
+                </header>
+            <% } %>
+            <div class="intro-screen center hide">
+                <h2>Choose your symbol:</h2>
+                <button type="button" class="choose-x choose">X</button>
+                <button type="button" class="choose-o choose">O</button>
+                <div>
+                    <a href="/?p=past_games" class="link">Past Games</a>
+                </div>
+            </div>
+                
+            <div class="game-screen center hide">
+                <div class="player-symbols">
+                    <h4>YOU: <span class="you"></span></h4>    
+                    <h4>COMPUTER: <span class="computer"></span></h4>    
+                </div>
+                <h4 class="winner hide">
+                    <strong>Winner: </strong>
+                    <span class="name"></span>
+                </h4>
+                <table class="center">
+                <tr>
+                    <td>
+                    <button type="button" class="cell" id="cell00"></button>
+                    </td>
+                    <td>
+                    <button type="button" class="cell" id="cell01"></button>
+                    </td>
+                    <td>
+                    <button type="button" class="cell" id="cell02"></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <button type="button" class="cell" id="cell10"></button>
+                    </td>
+                    <td>
+                    <button type="button" class="cell" id="cell11"></button>
+                    </td>
+                    <td>
+                    <button type="button" class="cell" id="cell12"></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <button type="button" class="cell" id="cell20"></button>
+                    </td>
+                    <td>
+                    <button type="button" class="cell" id="cell21"></button>
+                    </td>
+                    <td>
+                    <button type="button" class="cell" id="cell22"></button>
+                    </td>
+                </tr>
+                </table>
+                <div class="buttons-cont">
+                    <a href="/" class="link">Go back</a>
+                    <button type="button" class="restart">Restart</button>
+                    <a href="/?p=past_games" class="link">Past Games</a>
+                </div>
+
+            </div>
+            
+            <div class="show-all-games-data hide">
+                <h2>Your games details</h2>
+                <a href="/" class="link">Go back</a>
+                <% if (typeof gameDetails !== 'undefined' && Array.isArray(gameDetails) && gameDetails.length > 0) { %>
+                    <ul>
+                        <% for (let i = 0; i < gameDetails.length; i++) { %>
+                        <li>
+                            <p>Room ID: <%= gameDetails[i].room_id %></p>
+                            <p>Winner: <%= gameDetails[i].winner %></p>                        
+                            <p>Date: <%= new Date(gameDetails[i].timestamp).toDateString() %></p>
+                            </li>
+                        <% } %>
+                    </ul>
+                <% } else { %>
+                <p>No game details available</p>
+                <% } %>
+            </div>
+        </main>
+        <script src="https://cdn.socket.io/4.7.4/socket.io.min.js" integrity="sha384-Gr6Lu2Ajx28mzwyVR8CFkULdCU7kMlZ9UthllibdOSo6qAiN+yXNHqtgdTvFXMT4" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type="module" src="scripts/home.js"></script>
+    </body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="css/auth.css">
+</head>
+
+<body>
+    <% if (typeof error !== 'undefined') { %>
+        <h5 class="error notify"><%= error %></h5>
+    <% } %>
+    
+    <% if (typeof success !== 'undefined') { %>
+        <h5 class="success notify"><%= success %></h5>
+    <% } %>
+    <div class="login-dark">
+        <form method="post" id="submit_form">
+            <div class="illustration">
+                <i class="icon ion-ios-locked-outline"></i>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" name="username" placeholder="Username" minlength="5" required>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="password" name="password" placeholder="Password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Passwords must match and contain at least one number, one uppercase letter, one lowercase letter, and be at least 8 characters long">
+                <i class="togglePassword far fa-eye"></i>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary btn-block" type="submit">Sign In</button>
+            </div>
+            <p>
+                You don't have an account? 
+                <a href="signup" class="other-auth">Sign Up</a>
+            </p>
+        </form>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="module" src="scripts/signin.js"></script>
+</body>
+
+</html>
