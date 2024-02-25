@@ -5,8 +5,7 @@
   "module": "commonjs",
   "main": "index.js",
   "scripts": {
-    "start": "node dist/index.js",
-    "build": "tsc",
+    "start": "tsc && node dist/index.js",
     "dev": "ts-node-dev src/index.ts"
   },
   "keywords": [],
